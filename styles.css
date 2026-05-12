@@ -861,6 +861,9 @@ nav.scrolled {
 
     nav {
         padding: 0.75rem 4%;
+        background: rgba(13, 20, 28, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     /* Ocultar btn Dashboard del nav en móvil para reducir saturación */
