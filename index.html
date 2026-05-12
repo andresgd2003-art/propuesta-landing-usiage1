@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USAIGE | AHORRO ENERGETICO INTELIGENTE</title>
+    <link rel="stylesheet" href="styles.css?v=2.5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description"
+        content="USAIGE: La plataforma definitiva de gestión energética inteligente. Optimiza edificios e industrias con nuestra tecnología de mapeo espacial y WiFi Sensing.">
+</head>
+
+<body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <nav id="mainNav">
+        <a href="#" class="logo">
+            <img src="megalotipo.png" alt="USAIGE Logo" class="megalotipo">
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#features" data-i18n="nav-features">Características</a></li>
+            <li><a href="#tech" data-i18n="nav-tech">Tecnología</a></li>
+            <li><a href="#traction" data-i18n="nav-traction">Tracción</a></li>
+            <li><a href="#team" data-i18n="nav-team">Equipo</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button id="langToggle" class="glass"
+                style="padding: 0.5rem 1rem; color: var(--primary); border-radius: 8px; cursor: pointer; font-weight: 700; border-color: var(--primary-glow);">EN</button>
+            <a href="#" class="btn-primary" data-i18n="nav-dashboard">Dashboard</a>
+            <button id="menuBtn" class="menu-toggle">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <!-- Fade overlay: bordes derecho e inferior -->
+        <div class="hero-fade"></div>
+        <div class="hero-content">
+            <span class="hero-tag"><span id="typed-hero"></span></span>
+            <h1 data-i18n="hero-title">INFRAESTRUCTURA DE ADMINISTRACION ENERGÉTICA INVISIBLE
+                E INTELIGENTE</h1>
+            <p data-i18n="hero-desc">USAIGE es la IA que elimina el desperdicio energético, previene paros de línea y
+                asegura el cumplimiento ESG en tiempo real. La solución definitiva ante la crisis energética.</p>
+            <div class="hero-actions">
+                <a href="#soluciones" class="btn-primary" data-i18n="hero-cta">Explorar Soluciones</a>
+                <a href="#team" class="glass"
+                    style="padding: 0.8rem 1.5rem; text-decoration: none; font-weight: 700; font-size: 0.9rem; color: var(--primary); border-color: var(--primary-glow);"
+                    data-i18n="hero-team">Conoce al Equipo</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="hero.png" alt="USAIGE Visual" id="heroImg" loading="lazy">
+        </div>
+    </header>
+
+    <!-- SVG Filter: distorsión digital en borde de imagen -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <filter id="heroEdgeDissolve" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015 0.04" numOctaves="4" seed="3" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="28" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+                <feGaussianBlur in="displaced" stdDeviation="1.2" result="blurred"/>
+                <feBlend in="SourceGraphic" in2="blurred" mode="normal"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <section class="problem" id="problema" style="padding: 100px 8% 50px;">
+        <div class="glass" style="padding: 4rem; border-left: 4px solid #ef4444;">
+            <span style="color: #ef4444; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em;"
+                data-i18n="prob-tag">EL PROBLEMA: CRISIS ENERGÉTICA</span>
+            <h2 style="font-size: 2.5rem; margin: 1.5rem 0;" data-i18n="prob-title">EL NEARSHORING COLAPSÓ LA RED
+                ELÉCTRICA</h2>
+            <div class="features-grid" style="margin-top: 3rem;">
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="prob-1-h">Consumo Fantasma</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;" data-i18n="prob-1-p">Las plantas pierden entre
+                        15% y 25% de energía en activos inactivos. Costo promedio: $42,000 MXN/mes.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="prob-2-h">Paros de Línea</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;" data-i18n="prob-2-p">Cada interrupción no
+                        planificada cuesta $2M MXN. La saturación de la red hace los paros inevitables.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="prob-3-h">Amenaza Sistémica</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;" data-i18n="prob-3-p">No puedes comprar más
+                        energía, debes optimizar la que tienes para mantener la competitividad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="soluciones">
+        <div class="section-header">
+            <h2 data-i18n="sol-title">Ecosistema USAIGE</h2>
+            <p style="color: var(--text-dim);" data-i18n="sol-tag">Tecnología Zero-Rewiring para un control total sin
+                paros de línea.</p>
+        </div>
+        <div class="features-grid">
+            <div class="glass feature-card">
+                <div class="feature-icon"><i data-lucide="wind"></i></div>
+                <h3 data-i18n="sol-1-h">USAIGE AIR</h3>
+                <p style="color: var(--text-dim);" data-i18n="sol-1-p">Sensing: WiFi-Sensing 100% anónimo para monitoreo
+                    de ocupación por perturbación de señal.</p>
+            </div>
+            <div class="glass feature-card">
+                <div class="feature-icon"><i data-lucide="zap"></i></div>
+                <h3 data-i18n="sol-2-h">USAIGE GRID</h3>
+                <p style="color: var(--text-dim);" data-i18n="sol-2-p">Power: Análisis de firma eléctrica y calidad de
+                    energía mediante CTs no invasivos.</p>
+            </div>
+            <div class="glass feature-card">
+                <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                <h3 data-i18n="sol-3-h">AIGE-Shield</h3>
+                <p style="color: var(--text-dim);" data-i18n="sol-3-p">Algoritmos de Validación de Integridad que
+                    eliminan falsos positivos y aseguran datos auditables.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules" style="padding: 0 8% 100px;">
+        <div class="features-grid">
+            <div class="glass feature-card" style="border-left: 4px solid var(--primary);">
+                <h3 data-i18n="mod-1-h">Deep Sleep</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem;" data-i18n="mod-1-p">
+                    Automatización para activos críticos (Compresores, HVAC) basada en ocupación real.</p>
+            </div>
+            <div class="glass feature-card" style="border-left: 4px solid var(--primary);">
+                <h3 data-i18n="mod-2-h">Vampire Guardian</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem;" data-i18n="mod-2-p">Eliminación
+                    en tiempo real del consumo fantasma y reporte automático de CO2.</p>
+            </div>
+            <div class="glass feature-card" style="border-left: 4px solid var(--primary);">
+                <h3 data-i18n="mod-3-h">ROI Inmediato</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem;" data-i18n="mod-3-p">394% de ROI
+                    mensual promedio con un Payback de hardware menor a 2.5 meses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Visual Banner -->
+    <section class="dashboard-banner">
+        <img src="dashboard.png" alt="USAIGE Dashboard de monitoreo energético en tiempo real" loading="lazy">
+    </section>
+
+    <section class="tech" id="tech">
+        <div class="tech-split">
+            <div class="tech-image">
+                <div class="glass" style="padding: 2rem; border-radius: 32px; position: relative;">
+                    <div
+                        style="aspect-ratio: 16/9; background: rgba(0,0,0,0.3); border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <img src="device.png" alt="USAIGE Device" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div
+                            style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(13, 20, 28, 0.6) 0%, rgba(13, 20, 28, 0) 50%);">
+                        </div>
+                        <span
+                            style="position: absolute; bottom: 1.5rem; left: 1.5rem; color: var(--primary); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; display: flex; align-items: center; gap: 0.5rem;">
+                            <span
+                                style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); animation: pulse 2s infinite;"></span>
+                            SYSTEM_ACTIVE // V1.0
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="tech-info">
+                <span class="hero-tag">VENTAJA COMPETITIVA</span>
+                <h2>USAIGE vs <span class="gradient-text">Gigantes</span> Industriales</h2>
+
+                <div class="tech-item">
+                    <i data-lucide="zap-off" style="color: var(--primary);"></i>
+                    <div>
+                        <h3>Zero-Rewiring</h3>
+                        <p style="color: var(--text-dim);">A diferencia de Siemens o Schneider, nuestro despliegue es no
+                            invasivo y sin paros de línea de semanas.</p>
+                    </div>
+                </div>
+
+                <div class="tech-item">
+                    <i data-lucide="bar-chart-3" style="color: var(--primary);"></i>
+                    <div>
+                        <h3>Efficiency-as-a-Service</h3>
+                        <p style="color: var(--text-dim);">Flujo de caja positivo desde el Mes 1. Suscripciones desde
+                            $4,500 MXN mensuales por célula de trabajo.</p>
+                    </div>
+                </div>
+
+                <div class="tech-item">
+                    <i data-lucide="leaf" style="color: var(--primary);"></i>
+                    <div>
+                        <h3>Cumplimiento ESG Real-Time</h3>
+                        <p style="color: var(--text-dim);">Reportes auditables de CO2 automatizados para acceder a
+                            incentivos fiscales y cumplir metas de exportación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industrial Visual -->
+    <section class="industrial-split">
+        <img src="industrial.png" alt="Planta industrial con sensores USAIGE activos" loading="lazy">
+        <div class="industrial-text">
+            <span class="hero-tag">DESPLIEGUE ZERO-REWIRING</span>
+            <h2>Instalación en <span class="gradient-text">Horas</span>, No Semanas</h2>
+            <p>Nuestros nodos inalámbricos se instalan sobre cualquier infraestructura existente sin parar la línea de producción. Sin obras, sin cableado, sin tiempos muertos.</p>
+            <a href="#soluciones" class="btn-primary">Ver Ecosistema</a>
+        </div>
+    </section>
+
+    <section class="traction" id="traction">
+        <div class="section-header">
+            <span class="hero-tag" data-i18n="trac-tag">TRACCIÓN</span>
+            <h2 data-i18n="trac-title">Validación técnica, ecosistémica y de mercado real.</h2>
+        </div>
+        <div class="traction-grid">
+            <!-- Global -->
+            <div class="traction-card card-purple">
+                <div class="traction-header">
+                    <i data-lucide="layers"></i>
+                    <span class="card-tag" data-i18n="trac-1-tag">GLOBAL</span>
+                </div>
+                <h3 data-i18n="trac-1-h">Harvard HSIL Hackathon</h3>
+                <p data-i18n="trac-1-p">Participación seleccionada para la integración de IA y monitoreo de activos
+                    críticos en infraestructura hospitalaria de alto impacto — Harvard HSIL</p>
+                <div class="traction-logo">
+                    <img src="hsil.png" alt="Harvard HSIL" loading="lazy">
+                </div>
+            </div>
+            <!-- Ecosistema -->
+            <div class="traction-card card-blue">
+                <div class="traction-header">
+                    <i data-lucide="layers"></i>
+                    <span class="card-tag" data-i18n="trac-2-tag">ECOSISTEMA</span>
+                </div>
+                <h3 data-i18n="trac-2-h">Startup México · 5ta Gen</h3>
+                <p data-i18n="trac-2-p">Fellows activos de la 5ta Generación de Incubación Digital (Gobierno del Estado
+                    & SUM). Acceso a red de mentores y preparación para levantamiento de capital.</p>
+                <div class="traction-logo">
+                    <img src="startup-mexico.png" alt="Startup México" loading="lazy">
+                </div>
+            </div>
+            <!-- Industrial -->
+            <div class="traction-card card-brown">
+                <div class="traction-header">
+                    <i data-lucide="layers"></i>
+                    <span class="card-tag" data-i18n="trac-3-tag">INDUSTRIAL</span>
+                </div>
+                <h3 data-i18n="trac-3-h">CAINTRA Nuevo León</h3>
+                <p data-i18n="trac-3-p">Participación estrategica en la Asamblea CAINTRA. Acuerdo verbal con empresa
+                    manufacturera para piloto de validación.</p>
+                <div class="traction-logo">
+                    <img src="caintra.png" alt="CAINTRA" loading="lazy">
+                </div>
+            </div>
+            <!-- Estratégico -->
+            <div class="traction-card card-green">
+                <div class="traction-header">
+                    <i data-lucide="layers"></i>
+                    <span class="card-tag" data-i18n="trac-4-tag">ESTRATÉGICO</span>
+                </div>
+                <h3 data-i18n="trac-4-h">Contacto directo Gartner</h3>
+                <p data-i18n="trac-4-p">Benchmarking Estratégico con ejecutivos de Gartner para validación estratégica y
+                    posicionamiento de mercado.</p>
+                <div class="traction-logo">
+                    <img src="gartner.png" alt="Gartner" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section" id="team">
+        <div class="section-header">
+            <h2 data-i18n="team-title">Liderazgo y Ejecución: El Core Team de USAIGE</h2>
+            <p style="color: var(--text-dim);" data-i18n="team-tag">Visión estratégica y excelencia técnica para la
+                nueva era energética.</p>
+        </div>
+        <div class="team-grid-container">
+            <!-- Ángel Fabian -->
+            <div class="glass team-card-glass">
+                <div class="team-photo-box">
+                    <img src="team-angel-f.png" alt="Ángel Fabian Ovando Alvarado" loading="lazy">
+                </div>
+                <h3 data-i18n="team-1-name">Ángel Fabian Ovando Alvarado</h3>
+                <span class="team-role" data-i18n="team-1-role">CEO & FOUNDER</span>
+                <ul class="team-details">
+                    <li data-i18n="team-1-l1">Candidato a Ingeniero Mecatrónico (FIME-UANL)</li>
+                    <li data-i18n="team-1-l2">Liderazgo estratégico, visión de negocio y desarrollo de alianzas para la
+                        gestión energética inteligente.</li>
+                </ul>
+            </div>
+            <!-- Emilio Martínez -->
+            <div class="glass team-card-glass">
+                <div class="team-photo-box">
+                    <img src="team-emilio.png" alt="Emilio Martínez Gutiérrez" loading="lazy">
+                </div>
+                <h3 data-i18n="team-2-name">Emilio Martínez Gutiérrez</h3>
+                <span class="team-role" data-i18n="team-2-role">CTO - CHIEF TECHNOLOGY OFFICER</span>
+                <ul class="team-details">
+                    <li data-i18n="team-2-l1">Candidato a Ingeniero Mecatrónico (FIME-UANL)</li>
+                    <li data-i18n="team-2-l2">Supervisa la integración entre el hardware, los protocolos de comunicación
+                        y el despliegue de código en los nodos.</li>
+                </ul>
+            </div>
+            <!-- Sergio Butzmann -->
+            <div class="glass team-card-glass">
+                <div class="team-photo-box">
+                    <img src="team-sergio.jpeg" alt="Sergio Butzmann" loading="lazy">
+                </div>
+                <h3 data-i18n="team-3-name">Sergio Jaziel Butzmann Martinez</h3>
+                <span class="team-role" data-i18n="team-3-role">(CAIO) / CHIEF AI OFFICER</span>
+                <ul class="team-details">
+                    <li data-i18n="team-3-l1">Candidato a Ingeniero en Inteligencia Artificial (FIME-UANL)</li>
+                    <li data-i18n="team-3-l2">Líder del equipo de diseño del motor predictivo de USAIGE.</li>
+                </ul>
+            </div>
+            <!-- Angel Javier Moreno -->
+            <div class="glass team-card-glass">
+                <div class="team-photo-box">
+                    <img src="team-angel-j.png" alt="Angel Javier Moreno Rivas" loading="lazy">
+                </div>
+                <h3 data-i18n="team-4-name">Angel Javier Moreno Rivas</h3>
+                <span class="team-role" data-i18n="team-4-role">HEAD OF PROJECT MANAGEMENT</span>
+                <ul class="team-details">
+                    <li data-i18n="team-4-l1">Candidato a Ingeniero Mecánico Administrador (FIME-UANL)</li>
+                    <li data-i18n="team-4-l2">Asegurar la ejecución de las instalaciones y proyectos en campo.</li>
+                </ul>
+            </div>
+        </div>
+        <p class="team-footer" data-i18n="team-footer">
+            Respaldados por un equipo de 12 futuros ingenieros especializados ubicados en Monterrey, una red de mentores
+            de Startup México y el Gobierno del Estado de Nuevo León.
+        </p>
+    </section>
+
+    <!-- ESG Metrics Visual -->
+    <section class="esg-section">
+        <div class="glass esg-inner">
+            <img src="esg.png" alt="Reporte ESG y métricas de ahorro energético USAIGE" loading="lazy">
+            <div class="esg-text">
+                <span class="hero-tag">CUMPLIMIENTO ESG EN TIEMPO REAL</span>
+                <h2>Reportes <span class="gradient-text">Auditables</span> Automáticos</h2>
+                <p>Genera reportes de emisiones CO2 certificables automáticamente. Cumple los requisitos de tus clientes internacionales y accede a incentivos fiscales sin trabajo manual adicional.</p>
+                <p style="margin-top: 1rem;">394% de ROI promedio mensual. Payback de hardware en menos de 2.5 meses.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="glass cta-box">
+            <h2 data-i18n="cta-title">¿Listo para Optimizar?</h2>
+            <p style="color: var(--text-dim); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;"
+                data-i18n="cta-desc">Únete a las industrias que ya están ahorrando hasta un 40% mediante nuestra
+                inteligencia espacial.</p>
+            <a href="#" class="btn-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;"
+                data-i18n="cta-btn">Comenzar Ahora</a>
+        </div>
+    </section>
+
+    <footer style="padding: 50px 8%; border-top: 1px solid var(--glass-border); text-align: center;">
+        <div class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
+            <img src="megalotipo.png" alt="USAIGE Logo" class="megalotipo" style="height: 65px;">
+        </div>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 USAIGE Intelligence. Todos los derechos
+            reservados.</p>
+    </footer>
+
+    <script>
+        // Translations Object
+        const translations = {
+            es: {
+                "nav-features": "Características",
+                "nav-tech": "Tecnología",
+                "nav-traction": "Tracción",
+                "nav-team": "Equipo",
+                "nav-dashboard": "Dashboard",
+                "hero-tag": "INFRAESTRUCTURA DE ADMINISTRACION ENERGETICA SIN CABLEADO",
+                "hero-title": "INFRAESTRUCTURA DE IA PARA ADMINISTRACION ENERGETICA INVISIBLE",
+                "hero-desc": "USAIGE es la IA que elimina el desperdicio energético, previene paros de línea y asegura el cumplimiento ESG en tiempo real. La solución definitiva ante la crisis energética.",
+                "hero-cta": "Explorar Soluciones",
+                "prob-tag": "EL PROBLEMA: CRISIS ENERGÉTICA",
+                "prob-title": "EL NEARSHORING COLAPSÓ LA RED ELÉCTRICA",
+                "prob-1-h": "Consumo Fantasma",
+                "prob-1-p": "Las plantas pierden entre 15% y 25% de energía en activos inactivos. Costo promedio: $42,000 MXN/mes.",
+                "prob-2-h": "Paros de Línea",
+                "prob-2-p": "Cada interrupción no planificada cuesta $2M MXN. La saturación de la red hace los paros inevitables.",
+                "prob-3-h": "Amenaza Sistémica",
+                "prob-3-p": "No puedes comprar más energía, debes optimizar la que tienes para mantener la competitividad.",
+                "sol-title": "Ecosistema USAIGE",
+                "sol-tag": "Tecnología Zero-Rewiring para un control total sin paros de línea.",
+                "sol-1-h": "USAIGE AIR",
+                "sol-1-p": "Sensing: WiFi-Sensing 100% anónimo para monitoreo de ocupación por perturbación de señal.",
+                "sol-2-h": "USAIGE GRID",
+                "sol-2-p": "Power: Análisis de firma eléctrica y calidad de energía mediante CTs no invasivos.",
+                "sol-3-h": "AIGE-Shield",
+                "sol-3-p": "Algoritmos de Validación de Integridad que eliminan falsos positivos y aseguran datos auditables.",
+                "mod-1-h": "Deep Sleep",
+                "mod-1-p": "Automatización para activos críticos (Compresores, HVAC) basada en ocupación real.",
+                "mod-2-h": "Vampire Guardian",
+                "mod-2-p": "Eliminación en tiempo real del consumo fantasma y reporte automático de CO2.",
+                "mod-3-h": "ROI Inmediato",
+                "mod-3-p": "394% de ROI mensual promedio con un Payback de hardware menor a 2.5 meses.",
+                "cta-title": "¿Listo para Optimizar?",
+                "cta-desc": "Únete a las industrias que ya están ahorrando hasta un 40% mediante nuestra inteligencia espacial.",
+                "cta-btn": "Comenzar Ahora",
+                "hero-team": "Conoce al Equipo",
+                "team-title": "Liderazgo y Ejecución: El Core Team de USAIGE",
+                "team-tag": "Visión estratégica y excelencia técnica para la nueva era energética.",
+                "team-1-name": "Ángel Fabian Ovando Alvarado",
+                "team-1-role": "CEO & FOUNDER",
+                "team-1-l1": "Candidato a Ingeniero Mecatrónico (FIME-UANL)",
+                "team-1-l2": "Liderazgo estratégico, visión de negocio y desarrollo de alianzas para la gestión energética inteligente.",
+                "team-2-name": "Emilio Martínez Gutiérrez",
+                "team-2-role": "CTO - CHIEF TECHNOLOGY OFFICER",
+                "team-2-l1": "Candidato a Ingeniero Mecatrónico (FIME-UANL)",
+                "team-2-l2": "Supervisa la integración entre el hardware, los protocolos de comunicación y el despliegue de código en los nodos.",
+                "team-3-name": "Sergio Jaziel Butzmann Martinez",
+                "team-3-role": "(CAIO) / CHIEF AI OFFICER",
+                "team-3-l1": "Candidato a Ingeniero en Inteligencia Artificial (FIME-UANL)",
+                "team-3-l2": "Líder del equipo de diseño del motor predictivo de USAIGE.",
+                "team-4-name": "Angel Javier Moreno Rivas",
+                "team-4-role": "HEAD OF PROJECT MANAGEMENT",
+                "team-4-l1": "Candidato a Ingeniero Mecánico Administrador (FIME-UANL)",
+                "team-4-l2": "Asegurar la ejecución de las instalaciones y proyectos en campo.",
+                "team-footer": "Respaldados por un equipo de 12 futuros ingenieros especializados ubicados en Monterrey, una red de mentores de Startup México y el Gobierno del Estado de Nuevo León.",
+                "trac-tag": "TRACCIÓN",
+                "trac-title": "Validación técnica, ecosistémica y de mercado real.",
+                "trac-1-tag": "GLOBAL",
+                "trac-1-h": "Harvard HSIL Hackathon",
+                "trac-1-p": "Participación seleccionada para la integración de IA y monitoreo de activos críticos en infraestructura hospitalaria de alto impacto — Harvard HSIL",
+                "trac-2-tag": "ECOSISTEMA",
+                "trac-2-h": "Startup México · 5ta Gen",
+                "trac-2-p": "Fellows activos de la 5ta Generación de Incubación Digital (Gobierno del Estado & SUM). Acceso a red de mentores y preparación para levantamiento de capital.",
+                "trac-3-tag": "INDUSTRIAL",
+                "trac-3-h": "CAINTRA Nuevo León",
+                "trac-3-p": "Participación estrategica en la Asamblea CAINTRA. Acuerdo verbal con empresa manufacturera para piloto de validación.",
+                "trac-4-tag": "ESTRATÉGICO",
+                "trac-4-h": "Contacto directo Gartner",
+                "trac-4-p": "Benchmarking Estratégico con ejecutivos de Gartner para validación estratégica y posicionamiento de mercado."
+            },
+            en: {
+                "nav-features": "Features",
+                "nav-tech": "Technology",
+                "nav-traction": "Traction",
+                "nav-team": "Team",
+                "nav-dashboard": "Dashboard",
+                "hero-tag": "WIRELESS ENERGY MANAGEMENT",
+                "hero-title": "INVISIBLE AND AI-POWERED ENERGY MANAGEMENT INFRASTRUCTURE",
+                "hero-desc": "USAIGE is the AI that eliminates energy waste, prevents line shutdowns, and ensures real-time ESG compliance. The ultimate solution to the energy crisis.",
+                "hero-cta": "Explore Solutions",
+                "prob-tag": "THE PROBLEM: ENERGY CRISIS",
+                "prob-title": "NEARSHORING COLLAPSED THE POWER GRID",
+                "prob-1-h": "Phantom Consumption",
+                "prob-1-p": "Plants lose 15% to 25% of energy in inactive assets. Average cost: $42,000 MXN/month.",
+                "prob-2-h": "Line Shutdowns",
+                "prob-2-p": "Each unplanned interruption costs $2M MXN. Grid saturation makes shutdowns inevitable.",
+                "prob-3-h": "Systemic Threat",
+                "prob-3-p": "You can't buy more energy; you must optimize what you have to remain competitive.",
+                "sol-title": "USAIGE Ecosystem",
+                "sol-tag": "Zero-Rewiring technology for total control without production stops.",
+                "sol-1-h": "USAIGE AIR",
+                "sol-1-p": "Sensing: 100% anonymous WiFi-Sensing for occupancy monitoring via signal perturbation.",
+                "sol-2-h": "USAIGE GRID",
+                "sol-2-p": "Power: Electrical signature and power quality analysis using non-invasive CTs.",
+                "sol-3-h": "AIGE-Shield",
+                "sol-3-p": "Integrity Validation algorithms that eliminate false positives and ensure auditable data.",
+                "mod-1-h": "Deep Sleep",
+                "mod-1-p": "Automation for critical assets (Compressors, HVAC) based on real occupancy.",
+                "mod-2-h": "Vampire Guardian",
+                "mod-2-p": "Real-time phantom consumption removal and automatic CO2 reporting.",
+                "mod-3-h": "Immediate ROI",
+                "mod-3-p": "394% average monthly ROI with hardware Payback under 2.5 months.",
+                "cta-title": "Ready to Optimize?",
+                "cta-desc": "Join the industries already saving up to 40% through our spatial intelligence.",
+                "cta-btn": "Start Now",
+                "hero-team": "Meet the Team",
+                "team-title": "Leadership & Execution: The USAIGE Core Team",
+                "team-tag": "Strategic vision and technical excellence for the new energy era.",
+                "team-1-name": "Ángel Fabian Ovando Alvarado",
+                "team-1-role": "CEO & FOUNDER",
+                "team-1-l1": "Mechatronics Engineer Candidate (FIME-UANL)",
+                "team-1-l2": "Strategic leadership, business vision, and alliance development for smart energy management.",
+                "team-2-name": "Emilio Martínez Gutiérrez",
+                "team-2-role": "CTO - CHIEF TECHNOLOGY OFFICER",
+                "team-2-l1": "Mechatronics Engineer Candidate (FIME-UANL)",
+                "team-2-l2": "Oversees the integration between hardware, communication protocols, and code deployment on nodes.",
+                "team-3-name": "Sergio Jaziel Butzmann Martinez",
+                "team-3-role": "(CAIO) / CHIEF AI OFFICER",
+                "team-3-l1": "AI Engineer Candidate (FIME-UANL)",
+                "team-3-l2": "Lead of the USAIGE predictive engine design team.",
+                "team-4-name": "Angel Javier Moreno Rivas",
+                "team-4-role": "HEAD OF PROJECT MANAGEMENT",
+                "team-4-l1": "Mechanical Administrator Engineer Candidate (FIME-UANL)",
+                "team-4-l2": "Ensures execution of field installations and projects.",
+                "team-footer": "Supported by a team of 12 specialized future engineers in Monterrey, a mentor network from Startup México and the Government of Nuevo León.",
+                "trac-tag": "TRACTION",
+                "trac-title": "Technical, Ecosystem, and Real Market Validation.",
+                "trac-1-tag": "GLOBAL",
+                "trac-1-h": "Harvard HSIL Hackathon",
+                "trac-1-p": "Selected participation for AI integration and critical asset monitoring in high-impact hospital infrastructure — Harvard HSIL",
+                "trac-2-tag": "ECOSYSTEM",
+                "trac-2-h": "Startup México · 5th Gen",
+                "trac-2-p": "Active Fellows of the 5th Generation of Digital Incubation (State Government & SUM). Access to a mentor network and capital raising preparation.",
+                "trac-3-tag": "INDUSTRIAL",
+                "trac-3-h": "CAINTRA Nuevo León",
+                "trac-3-p": "Strategic participation in the CAINTRA Assembly. Verbal agreement with a manufacturing company for a validation pilot.",
+                "trac-4-tag": "STRATEGIC",
+                "trac-4-h": "Direct Gartner Contact",
+                "trac-4-p": "Strategic Benchmarking with Gartner executives for strategic validation and market positioning."
+            }
+        };
+
+        let currentLang = 'es';
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+            document.getElementById('langToggle').textContent = currentLang === 'es' ? 'EN' : 'ES';
+        }
+
+        // Initialize state
+        const savedLang = localStorage.getItem('usaige-language');
+        if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
+            currentLang = savedLang;
+        }
+        updateLanguage();
+
+        document.getElementById('langToggle').addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('usaige-language', currentLang);
+            updateLanguage();
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Nav Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            const isOpened = navLinks.classList.contains('active');
+            icon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
+            lucide.createIcons();
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // ── Typed.js: hero tag rotates through value props ──────────────
+        const typedStrings = {
+            es: [
+                'WIRELESS ENERGY MANAGEMENT',
+                'DESPLIEGUE ZERO-REWIRING',
+                'CUMPLIMIENTO ESG EN TIEMPO REAL',
+                'AHORRO ENERG\u00c9TICO INTELIGENTE'
+            ],
+            en: [
+                'WIRELESS ENERGY MANAGEMENT',
+                'ZERO-REWIRING DEPLOYMENT',
+                'REAL-TIME ESG COMPLIANCE',
+                'AI-POWERED ENERGY SAVINGS'
+            ]
+        };
+
+        let typedInstance = new Typed('#typed-hero', {
+            strings: typedStrings[currentLang],
+            typeSpeed: 45,
+            backSpeed: 25,
+            backDelay: 2800,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+
+        // Re-init Typed on language change
+        const origUpdateLanguage = updateLanguage;
+        document.getElementById('langToggle').addEventListener('click', () => {
+            setTimeout(() => {
+                typedInstance.destroy();
+                typedInstance = new Typed('#typed-hero', {
+                    strings: typedStrings[currentLang],
+                    typeSpeed: 45,
+                    backSpeed: 25,
+                    backDelay: 2800,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+            }, 50);
+        });
+
+        // ── GSAP + ScrollTrigger ─────────────────────────────────────────
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero content: entrance animation on load
+        gsap.from('.hero-content', {
+            duration: 1.3,
+            y: 70,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.2
+        });
+
+        // Hero image: parallax on scroll
+        gsap.to('.hero-visual img', {
+            yPercent: -18,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        // Dashboard banner: cinematic reveal
+        gsap.from('.dashboard-banner img', {
+            scrollTrigger: {
+                trigger: '.dashboard-banner',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            y: 80,
+            opacity: 0,
+            scale: 0.97,
+            duration: 1.1,
+            ease: 'power3.out'
+        });
+
+        // Industrial image: slide from left
+        gsap.from('.industrial-split img', {
+            scrollTrigger: {
+                trigger: '.industrial-split',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            x: -80,
+            opacity: 0,
+            duration: 1.0,
+            ease: 'power2.out'
+        });
+
+        // Industrial text: slide from right
+        gsap.from('.industrial-text', {
+            scrollTrigger: {
+                trigger: '.industrial-split',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            x: 80,
+            opacity: 0,
+            duration: 1.0,
+            ease: 'power2.out'
+        });
+
+        // ESG section reveal
+        gsap.from('.esg-inner', {
+            scrollTrigger: {
+                trigger: '.esg-section',
+                start: 'top 82%',
+                toggleActions: 'play none none none'
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1.0,
+            ease: 'power2.out'
+        });
+
+        // Section headers
+        gsap.utils.toArray('.section-header').forEach(header => {
+            gsap.from(header, {
+                scrollTrigger: {
+                    trigger: header,
+                    start: 'top 88%',
+                    toggleActions: 'play none none none'
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+        });
+
+        // Staggered cards: feature, traction, team
+        gsap.utils.toArray('.features-grid .glass').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
+                y: 50, opacity: 0, duration: 0.7, delay: i * 0.12, ease: 'power2.out'
+            });
+        });
+
+        gsap.utils.toArray('.traction-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
+                y: 50, opacity: 0, duration: 0.7, delay: i * 0.1, ease: 'power2.out'
+            });
+        });
+
+        gsap.utils.toArray('.team-card-glass').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'play none none none' },
+                y: 40, opacity: 0, duration: 0.6, delay: i * 0.08, ease: 'power2.out'
+            });
+        });
+
+        // Tech items: slide in
+        gsap.utils.toArray('.tech-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: { trigger: item, start: 'top 88%', toggleActions: 'play none none none' },
+                x: 40, opacity: 0, duration: 0.6, delay: i * 0.12, ease: 'power2.out'
+            });
+        });
+
+    </script>
+</body>
+
+</html>
